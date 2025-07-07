@@ -10,9 +10,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Image from "next/image";
 
-function CategorySlider(props = { activeCategory, setActiveCategory }) {
-  
-  const { activeCategory, setActiveCategory } = props;
+function CategorySlider(props) {
+
+  const { activeCategory, setActiveCategory }: { activeCategory: string; setActiveCategory: (category: string) => void; } = props;
 
   const categoriesData = [
     { name: "All", imageURL: "/images/trainer.png" },
@@ -28,13 +28,13 @@ function CategorySlider(props = { activeCategory, setActiveCategory }) {
     { name: "Wellness", imageURL: "/images/wellness.png" },
     { name: "Mindfulness", imageURL: "/images/mindfulness.png" },
     { name: "Balance", imageURL: "/images/balance.png" },
-    // { name: "Core Strength", imageURL: "/images/core-strength.png" },
-    // { name: "Mobility", imageURL: "/images/mobility.png" },
-    // { name: "Agility", imageURL: "/images/agility.png" },
-    // { name: "Recovery", imageURL: "/images/recovery.png" },
-    // { name: "Sports Training", imageURL: "/images/sports-training.png" },
-    // { name: "Functional Fitness", imageURL: "/images/functional-fitness.png" },
-    // { name: "Group Classes", imageURL: "/images/group-classes.png" },
+    { name: "Core Strength", imageURL: "/images/core-strength.png" },
+  //    { name: "Mobility", imageURL: "/images/mobility.png" },
+  //   { name: "Agility", imageURL: "/images/agility.png" },
+  //   { name: "Recovery", imageURL: "/images/recovery.png" },
+  //  { name: "Sports Training", imageURL: "/images/sports-training.png" },
+  //   { name: "Functional Fitness", imageURL: "/images/functional-fitness.png" },
+  //    { name: "Group Classes", imageURL: "/images/group-classes.png" },
     // { name: "Personal Training", imageURL: "/images/personal-training.png" },
     // { name: "Online Coaching", imageURL: "/images/online-coaching.png" },
     // { name: "Bootcamp", imageURL: "/images/bootcamp.png" },
@@ -56,7 +56,7 @@ function CategorySlider(props = { activeCategory, setActiveCategory }) {
         spaceBetween={0}
         slidesPerView="auto"
         navigation
-        className="w-full category-slider"
+        className="category-slider w-full"
       >
         {categoriesData.map((category, index) => (
           <SwiperSlide

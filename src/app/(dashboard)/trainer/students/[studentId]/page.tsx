@@ -1,9 +1,9 @@
 import React from 'react'
 
-function StudentPage() {
+function StudentDetail() {
   return (
-    <div>StudentPage</div>
+    <div>StudentDetail</div>
   )
 }
 
-export default StudentPage
+export default StudentDetail
