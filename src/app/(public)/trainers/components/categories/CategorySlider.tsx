@@ -50,22 +50,22 @@ function CategorySlider(props) {
   ];
 
   return (
-    <div className="">
+    <div className="col-span-10 md:col-span-7 lg:col-span-8 bg-white">
       <Swiper
         modules={[Navigation]}
         spaceBetween={0}
         slidesPerView="auto"
         navigation
-        className="category-slider w-full"
+        className="category-slider "
       >
         {categoriesData.map((category, index) => (
           <SwiperSlide
             onClick={() => setActiveCategory(category.name)}
             key={index}
             className={clsx(
-              "opacity-70 grid place-content-center place-items-center gap-y-2 h-[78px] hover:border-b cursor-pointer max-w-max mx-6 hover:opacity-100",
+              "opacity-90 grid place-content-center place-items-center bg-white gap-y-2 h-[78px] hover:border-b cursor-pointer max-w-max mx-6 hover:opacity-100",
               {
-                "border-b border-[#27ae60] text-[#27ae60] !opacity-100":
+                "border-b border-neutral-500 text-black !opacity-100":
                   category.name === activeCategory,
               }
             )}
@@ -75,9 +75,9 @@ function CategorySlider(props) {
               alt={category.name}
               width={24}
               height={24}
-              className="w-6 h-6 !text-[#27ae60]"
+              className="w-6 h-6"
             />
-            <span className="text-xs">{category.name}</span>
+            <span className="text-xs ">{category.name}</span>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -1272,9 +1272,8 @@ function Trainers() {
     },
   ];
 
-
   return (
-    <div className="min-h-screen  bg-[#ffffff] text-[#161010] max-w-screen overflow-hidden">
+    <div className="min-h-screen  bg-white text-black max-w-screen">
       {/* Hero Section */}
 
       <section className="max-w-screen h-[400px]">
@@ -1283,19 +1282,21 @@ function Trainers() {
             activeCategory === category.ad && (
               <div
                 key={index}
-                className=" h-full flex justify-between px-[10%]"
-                style={{
-                  background: `linear-gradient(135deg, ${category.renk_kodu} 0%, rgba(255, 255, 255, 0.5) 100%)`,
-                }}
+                className=" h-full flex justify-between px-[10%] bg-gradient-to-r from-green-300 to-green-500"
+                style={
+                  {
+                    //  background: `linear-gradient(135deg, ${category.renk_kodu} 0%, rgba(255, 255, 255, 0.5) 100%)`,
+                  }
+                }
               >
                 <div className={`h-full flex flex-col justify-center`}>
                   <h1 className="text-white text-6xl font-bold  mb-6">
                     {category.ad}
                   </h1>
-                  <p className="text-gray-100 text-2xl mb-4">
+                  <p className="text-neutral-50 text-2xl mb-4">
                     {category.sloganlar[0]}
                   </p>
-                  <p className="text-gray-100 text-2xl mb-4">
+                  <p className="text-neutral-50 text-2xl mb-4">
                     {category.sloganlar[1]}
                   </p>
                 </div>
@@ -1321,37 +1322,70 @@ function Trainers() {
 
       {/* Filter Section */}
 
-      <section className="sticky z-50 top-20  mb-8 py-3 px-20 max-w-screen  bg-white flex items-center justify-center border-b border-gray-300 shadow-md">
-
-        <div className="flex justify-center container mx-auto">
-          <CategorySlider
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-          />
-          <CategoryFilter
-            activeCategory={activeCategory}
-          />
-        </div>
-      </section>
-
       {/* Trainers List Section */}
 
       {/* Popular Trainers Section */}
-      <section className="container mx-auto p-6">
-        <h2 className="text-3xl font-bold mb-6">Popular Trainers</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <section className="pb-6">
+        <section className="sticky z-50 top-20 px-[4%] mb-8 py-4 flex items-center justify-center border-y bg-white text-black border-neutral-500 shadow-md">
+          <div className="grid grid-cols-10 gap-3">
+            <CategorySlider
+              activeCategory={activeCategory}
+              setActiveCategory={setActiveCategory}
+            />
+            <CategoryFilter activeCategory={activeCategory} />
+          </div>
+        </section>
+
+        <h2 className="text-3xl font-bold mb-6 container mx-auto">
+          Popular Trainers
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 container mx-auto mb-3">
           {allTrainers.map((trainer) => (
             <div
               key={trainer.id}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+              className="bg-neutral-100 rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition-shadow duration-300 h-96"
             >
-              
+              <div className="flex justify-center items-center text-7xl h-40 w-40 mb-4 bg-neutral-200 rounded-full">
+                s
+              </div>
               <h3 className="text-xl font-semibold mb-2">{trainer.name}</h3>
-              <p className="text-gray-600 mb-4">{trainer.specialization}</p>
-              <div className="flex justify-between items-center">
+              <p className="text-gray-600 mb-4 flex-1">
+                {trainer.specialization}
+              </p>
+              <div className="flex justify-between space-x-4 items-center w-full">
                 <Link
                   href={`/trainers/${trainer.id}`}
-                  className="text-blue-600 hover:underline"
+                  className="text-gray-400 hover:underline"
+                >
+                  View Profile
+                </Link>
+                <span className="text-gray-500">
+                  {trainer.packages.length} Packages
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <h2 className="text-3xl font-bold mb-6 container mx-auto">
+          Popular Trainers
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 container mx-auto mb-3">
+          {allTrainers.map((trainer) => (
+            <div
+              key={trainer.id}
+              className="bg-neutral-100 rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition-shadow duration-300 h-96"
+            >
+              <div className="flex justify-center items-center text-7xl h-40 w-40 mb-4 bg-neutral-200 rounded-full">
+                s
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{trainer.name}</h3>
+              <p className="text-gray-600 mb-4 flex-1">
+                {trainer.specialization}
+              </p>
+              <div className="flex justify-between space-x-4 items-center w-full">
+                <Link
+                  href={`/trainers/${trainer.id}`}
+                  className="text-gray-400 hover:underline"
                 >
                   View Profile
                 </Link>
@@ -1366,15 +1400,14 @@ function Trainers() {
 
       {/* Today Trainers Section */}
 
-
       {/* Pagination Section */}
 
       <section className="container mx-auto p-6">
         <div className="flex justify-center mt-8">
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">
+          <button className="bg-black text-white px-4 py-2 rounded hover:bg-blue-700 mr-2">
             Previous
           </button>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          <button className="bg-black text-white px-4 py-2 rounded hover:bg-blue-700">
             Next
           </button>
         </div>

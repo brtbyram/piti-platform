@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { VictoryBar } from "victory";
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
+import { ArrowDownUp } from "lucide-react";
 
 
 
@@ -403,30 +404,31 @@ function CategoryFilter({ activeCategory }: { activeCategory: string }) {
   ];
 
   return (
-    <div className="flex space-x-2 font-semibold flex-1">
+    <div className="col-span-10 md:col-span-3 lg:col-span-2 grid grid-cols-2 gap-x-3 font-semibold">
       <button
         onClick={() => setFilterOpen(true)}
-        className="text-[#222222] flex items-center px-4 border rounded-xl py-2.5 hover:border-black hover:bg-[#f5f5f5]"
+        className="text-black flex items-center justify-center px-4 border border-neutral-800 rounded-xl py-2.5 hover:border-neutral-400 hover:bg-neutral-300"
       >
         <span className="flex items-center justify-center space-x-2 text-xs">
           <Icon name="filter" size={16} />
           <span>Filtreler</span>
         </span>
       </button>
-      <button className="text-[#222222] flex items-center space-x-2 px-4 border rounded-xl py-2.5 hover:border-black hover:bg-[#f5f5f5] hover:w-40">
-        <span className="flex items-center justify-center space-x-2 text-xs min-w-max">
-          Sıralama
+      <button className="text-black flex items-center justify-center space-x-2 px-4 border border-neutral-800 rounded-xl py-2.5 hover:border-neutral-400 hover:bg-neutral-300">
+        <span className="flex items-center justify-center space-x-2 text-xs">
+          <ArrowDownUp size={16} />
+          <span>Sıralama</span>
         </span>
       </button>
 
       {filterOpen && (
         <div className="fixed top-0 left-0 right-0 z-20 h-screen w-full bg-[#000000]/50">
-          <div className="bg-white border rounded-2xl my-10 w-10/12 max-w-[780px] h-[880px] overflow-hidden mx-auto">
+          <div className="bg-white text-black border rounded-2xl my-10 w-10/12 max-w-[780px] h-[880px] overflow-hidden mx-auto">
             <header className="relative flex justify-center items-center w-full p-6 border-b border-[#e5e7eb]">
               <h1 className="leading-5 font-bold">Filtreler</h1>
               <button
                 onClick={() => setFilterOpen(false)}
-                className="absolute  left-4 p-2 rounded-full hover:bg-[#f7f7f7]"
+                className="absolute  left-4 p-2 rounded-full hover:bg-[#f7f7f7] text-black"
               >
                 <Icon name="close" size={20} />
               </button>

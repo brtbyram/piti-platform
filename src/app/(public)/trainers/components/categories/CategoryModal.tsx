@@ -95,7 +95,7 @@ function CategoryModal() {
                     fsdfsfsdf   
                 </div>
 
-                {/* <div className="p-6 h-full overflow-scroll">
+                 <div className="p-6 h-full overflow-scroll">
 
                     <div className="border-b">
                         <h2 className="font-semibold text-[22px] leading-[26px] pb-4">Yerin türü</h2>
@@ -313,7 +313,7 @@ function CategoryModal() {
                     <div className="py-6 border-b">
                         <h2>Ev sahibinin konuştuğu dil</h2>
                     </div>
-                </div> */}
+                </div> 
             </div>
         </div >
     )
