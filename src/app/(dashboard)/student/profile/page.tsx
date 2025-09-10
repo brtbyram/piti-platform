@@ -4,7 +4,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-black min-h-screen">
       <div className="h-80 w-full bg-gray-900 relative border-b-2">
         <Image
           src="/images/fitnessperson.jpg"
@@ -40,7 +40,7 @@ function page() {
                 if you have any questions or just want to chat about fitness!
               </p>
               <button className="bg-red-600 text-white mt-5 px-8 py-2 rounded-md hover:bg-gray-700 transition-colors">
-                Subscribe
+                Follow
               </button>
             </div>
           </div>
