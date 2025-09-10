@@ -3,7 +3,6 @@
 import CategorySlider from "./components/categories/CategorySlider";
 import CategoryFilter from "./components/categories/CategoryFilter";
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 function Trainers() {

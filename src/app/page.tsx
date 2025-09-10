@@ -5,6 +5,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { Icon } from "../../public/Icons";
 
 function Home() {
   const scrollRef = useRef(null);
@@ -23,7 +24,9 @@ function Home() {
   return (
     <>
       <Header />
+
       <main className="bg-[#F3F4F6] text-gray-900 flex flex-col items-center justify-center relative size-full min-h-screen overflow-x-hidden">
+        {/* Hero section */}
         <section className="hero-bg bg-cover bg-center w-screen">
           <div className="container mx-auto flex min-h-[calc(100vh-80px)] flex-col items-center justify-center px-6 text-center lg:px-10">
             <div className="max-w-3xl">
@@ -50,6 +53,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Features section */}
         {/* <section className="container mx-auto px-6 py-16 my-20">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -114,6 +118,7 @@ function Home() {
         </div>
       </section> */}
 
+        {/* Why use yourTrainer section */}
         <section
           data-container
           data-scroll
@@ -230,6 +235,7 @@ function Home() {
           </div>
         </section>
 
+        {/* FAQ section */}
         <section className="w-screen bg-[#F3F4F6] pt-10">
           <div className="relative top-0 left-0 w-screen overflow-hidden">
             <div className="border-b-[4rem] border-b-gray-200 border-l-[100vw] border-l-[#F3F4F6] static " />
@@ -335,6 +341,159 @@ function Home() {
           </div>
         </section>
 
+        {/* Testimonials section */}
+        <section className="bg-white py-16 w-screen h-screen flex flex-col items-center justify-center text-center gap-y-4">
+  
+            <h2 className="!leading-12 text-7xl font-bold text-center mb-8">
+              We let our{" "}
+              <span className="text-green-500">clients' success</span> <br /> be
+              our speaker
+            </h2>
+
+            <p className="w-7/12 mx-auto my-2">
+              Access a wealth of success stories from our clients who have
+              transformed their lives with the help of yourTrainer. From weight
+              loss to muscle gain, our trainers have guided countless
+              individuals on their fitness journeys. Read their inspiring
+              testimonials and see how personalized training and nutrition plans
+              have made a difference in their lives.
+            </p>
+
+            <button className="flex justify-center items-center  gap-x-3 mx-auto my-6 bg-green-500 font-semibold  text-white hover:bg-green-600 transition-all duration-300 px-5 py-3 rounded-full group">
+              Order Now
+              <div className="-rotate-45 group-hover:rotate-0 text-black rounded-full bg-white w-7 h-7 flex items-center justify-center transition-transform group-hover:animate-pulse">
+                <Icon name="arrowRight" size={16} />
+              </div>
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-start mb-4 gap-1">
+                  <div className="w-13 h-13 rounded-full bg-gray-300">
+                    <Image
+                      src="/images/IMG_20190507_232453_781.jpg"
+                      alt="Client Avatar"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col text-start">
+                    <h3 className="text-xl text-black">Berat Bayram</h3>
+                    <p className="text-gray-600 text-sm">
+                      Fitness Enthusiast | Client since 2022
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 mb-4 text-start">
+                  yourTrainer has transformed my fitness journey! The trainers
+                  are knowledgeable and truly care about my progress.
+                </p>
+              </div>
+
+              <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-start mb-4 gap-1">
+                  <div className="w-13 h-13 rounded-full bg-gray-300">
+                    <Image
+                      src="/images/IMG_20190507_232453_781.jpg"
+                      alt="Client Avatar"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col text-start">
+                    <h3 className="text-xl text-black">Berat Bayram</h3>
+                    <p className="text-gray-600 text-sm">
+                      Fitness Enthusiast | Client since 2022
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 mb-4 text-start">
+                  I love the personalized approach! My trainer created a plan
+                  that fits my lifestyle, and I've seen amazing results.
+                </p>
+              </div>
+
+              <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-start mb-4 gap-1">
+                  <div className="w-13 h-13 rounded-full bg-gray-300">
+                    <Image
+                      src="/images/IMG_20190507_232453_781.jpg"
+                      alt="Client Avatar"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col text-start">
+                    <h3 className="text-xl text-black">Berat Bayram</h3>
+                    <p className="text-gray-600 text-sm">
+                      Fitness Enthusiast | Client since 2022
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 mb-4 text-start">
+                  The community support is incredible! I've made friends and
+                  found motivation that keeps me going.
+                </p>
+              </div>
+
+              <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div className="flex items-center justify-start mb-4 gap-1">
+                  <div className="w-13 h-13 rounded-full bg-gray-300">
+                    <Image
+                      src="/images/IMG_20190507_232453_781.jpg"
+                      alt="Client Avatar"
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col text-start">
+                    <h3 className="text-xl text-black">Berat Bayram</h3>
+                    <p className="text-gray-600 text-sm">
+                      Fitness Enthusiast | Client since 2022
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 mb-4 text-start">
+                  yourTrainer has been a game-changer for me! The trainers are
+                  supportive, and the platform is easy to use. I've never felt
+                  more motivated to reach my goals.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center justify-center mt-8">
+              <div className="flex  justify-center mt-8">
+                <Icon name="star" size={20} color="oklch(62.7% .194 149.214)" />
+                <div className="text-lg font-semibold">Trustpilot</div>
+              </div>
+              <div className="flex items-center justify-center gap-0.5 mb-4">
+                {[1, 2, 3, 4, 5].map((_, index) => (
+                  <div key={index} className="flex items-center justify-center">
+                    <div
+                      className={` text-white p-0.5 ${
+                        index < 4
+                          ? "bg-green-600 "
+                          : "bg-gradient-to-r from-50% from-green-600 to-50% to-gray-300"
+                      }`}
+                    >
+                      <Icon name="star" size={14} color="#fff" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p>Data provided by trustpilot.</p>
+            </div>
+            
+        </section>
+
         {/* Subscribe section */}
         <section className="bg-[#27ae60] text-[#faf5ec] w-screen rounded-t-[10rem] py-16">
           <div className="flex flex-col justify-center items-center px-6 py-16">
@@ -342,7 +501,10 @@ function Home() {
               Join the yourTrainer Community
             </h2>
             <p className="text-xl text-[#faf5ec]/80 mb-8 w-7/12 text-center">
-              Sign up today and take the first step towards achieving your fitness goals with the support of our expert trainers. Join a vibrant community, access exclusive tips, and stay motivated on your journey to a healthier you!
+              Sign up today and take the first step towards achieving your
+              fitness goals with the support of our expert trainers. Join a
+              vibrant community, access exclusive tips, and stay motivated on
+              your journey to a healthier you!
             </p>
             <div className="flex justify-center gap-x-4 w-full">
               <input
