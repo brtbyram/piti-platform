@@ -1,35 +1,48 @@
 "use client";
 
 import clsx from "clsx";
-import { Edit, Trash } from "lucide-react";
+import {
+  CloudDownload,
+  Edit,
+  ExternalLink,
+  SettingsIcon,
+  Trash,
+} from "lucide-react";
 import { useState } from "react";
+import { Icon } from "../../../../../public/Icons";
 
 function Settings() {
+
   const [activeSetting, setActiveSetting] = useState("Account");
 
   return (
-    <main className="bg-white p-8 min-h-screen">
+    <main className="bg-neutral-50 p-8 min-h-screen">
       <section className="flex flex-col gap-4">
         <h1 className="text-3xl font-bold">Settings</h1>
         <p className="text-lg">
           Manage your account settings and preferences here.
         </p>
         <nav className="flex">
-          {["Account", "Notifications", "Sharing", "Billing", "Privacy", "Integrations"].map(
-            (setting) => (
-              <button
-                onClick={() => setActiveSetting(setting)}
-                key={setting}
-                className={clsx(
-                  "flex flex-col items-center mx-1 rounded-full px-4 py-2 hover:bg-neutral-200",
-                  setting === activeSetting && "bg-black text-white ",
-                  setting !== activeSetting && "bg-neutral-100"
-                )}
-              >
-                <h2>{setting}</h2>
-              </button>
-            )
-          )}
+          {[
+            "Account",
+            "Notifications",
+            "Sharing",
+            "Billing",
+            "Privacy",
+            "Integrations",
+          ].map((setting) => (
+            <button
+              onClick={() => setActiveSetting(setting)}
+              key={setting}
+              className={clsx(
+                "flex flex-col items-center mx-1 rounded-full px-4 py-2 hover:bg-neutral-200",
+                setting === activeSetting && "bg-black text-white ",
+                setting !== activeSetting && "bg-neutral-100"
+              )}
+            >
+              <h2>{setting}</h2>
+            </button>
+          ))}
         </nav>
       </section>
 
@@ -470,7 +483,7 @@ function Settings() {
             </div>
           </div>
 
-          <div className="bg-green-500 text-white flex items-center justify-center w-full h-46 rounded-2xl">
+          <div className="bg-green-400 border-4 border-black text-white flex items-center justify-center w-full h-46 rounded-2xl">
             <p className="text-center text-3xl font-semibold px-4">
               Are our notifications bothering you? Please let us know what we
               can improve.
@@ -479,25 +492,512 @@ function Settings() {
         </section>
       )}
 
-       {activeSetting === "Billing" && (
+      {activeSetting === "Sharing" && (
         <section className="pt-8">
-          <h2>Plans & Billing</h2>
-          <p>Manage your subscription and billing information.</p>
+          <div className="grid grid-cols-10 gap-8 border-b py-10 border-neutral-200">
+            <div className="col-span-3">
+              <h2 className="text-xl font-semibold">Community Sharing</h2>
+              <p className="text-sm text-gray-600">
+                Control how your workout data and activities are shared with the
+                community.
+              </p>
+            </div>
+            <div className="col-span-7 flex flex-col w-full space-y-6">
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Automatically Share Training Summaries
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    When enabled, your workout summaries will be automatically
+                    shared with the community.
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Who can see my shares?
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    Control the visibility of your shared content within the
+                    community.
+                  </p>
+                </div>
+                <button className="h-10 text-sm text-neutral-500 rounded-full border border-neutral-200 min-w-max px-4 mt-2">
+                  Manage
+                </button>
+              </div>
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">Who can comment?</h2>
+                  <p className="text-neutral-400 text-sm">
+                    Choose who can leave comments on your shared posts.
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+              <div className="w-full py-4 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Visibility in leaderboards
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    Choose whether your profile appears in community
+                    leaderboards.
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-10 gap-8 border-b py-10 border-neutral-200">
+            <div className="col-span-3">
+              <h2 className="text-xl font-semibold">Social Media Sharing</h2>
+              <p className="text-sm text-gray-600">
+                Connect your social accounts and manage your sharing templates.
+              </p>
+            </div>
+            <div className="col-span-7 flex flex-col w-full space-y-6">
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Connect Your Social Media Accounts
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    Link your social media accounts for easy sharing.
+                  </p>
+                </div>
+                <button className="h-10 text-sm text-neutral-500 rounded-full border border-neutral-200 min-w-max px-4 mt-2">
+                  Manage
+                </button>
+              </div>
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">Sharing Templates</h2>
+                  <p className="text-neutral-400 text-sm">
+                    Customize the templates used when sharing to social media.
+                  </p>
+                </div>
+                <button className="h-10 text-sm text-neutral-500 rounded-full border border-neutral-200 min-w-max px-4 mt-2">
+                  Edit
+                </button>
+              </div>
+              <div className="w-full py-4 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Default Tags (Hashtags)
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    Suggest automatically adding tags such as #yourTrainer,
+                    #YTFit, #coaching to post templates. Users can edit these as
+                    they wish.
+                  </p>
+                </div>
+                <div className="flex flex-col items-end">
+                  <input
+                    type="text"
+                    className="border border-gray-300 rounded p-2 w-48"
+                    placeholder="#yourTrainer, #YTFit, #coaching"
+                  />
+                  <span className="text-xs text-neutral-500 mt-1">
+                    (separate with commas)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-10 gap-8 border-b py-10 border-neutral-200">
+            <div className="col-span-3">
+              <h2 className="text-xl font-semibold">Coach Sharing</h2>
+              <p className="text-sm text-gray-600">
+                These settings determine which data students share with their
+                coaches.
+              </p>
+            </div>
+            <div className="col-span-7 flex flex-col w-full space-y-6">
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">Share Progress Data</h2>
+                  <p className="text-neutral-400 text-sm">
+                    Ensure that all data, such as weight, measurements, and
+                    workout performance, is automatically shared with your
+                    coach.
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Share Nutrition Log Data
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    If you use the nutrition tracking feature, control whether
+                    this data is visible to your coach.
+                  </p>
+                </div>
+                <button className="h-10 text-sm text-neutral-500 rounded-full border border-neutral-200 min-w-max px-4 mt-2">
+                  Manage
+                </button>
+              </div>
+              <div className="w-full py-4 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">Private Notes</h2>
+                  <p className="text-neutral-400 text-sm">
+                    Offer the option to keep certain notes or data private.
+                    (E.g., add a “Do not share with coach” tag).
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-10 gap-8 pt-10">
+            <div className="col-span-3">
+              <h2 className="text-xl font-semibold">
+                Advanced Sharing Settings
+              </h2>
+              <p className="text-sm text-gray-600">
+                Additional options for more detailed control.
+              </p>
+            </div>
+            <div className="col-span-7 flex flex-col w-full space-y-6">
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Share a Specific Workout
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    At the end of each workout, the user should be given the
+                    option to manually share that specific workout with the
+                    community or on social media.
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+              <div className="w-full py-4 border-b border-neutral-200 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">Anonymous Sharing</h2>
+                  <p className="text-neutral-400 text-sm">
+                    An anonymous sharing option where your name is not visible,
+                    but your statistics are shared. This allows even
+                    privacy-conscious users to contribute to community data.
+                  </p>
+                </div>
+                <button className="h-10 text-sm text-neutral-500 rounded-full border border-neutral-200 min-w-max px-4 mt-2">
+                  Manage
+                </button>
+              </div>
+              <div className="w-full py-4 flex justify-between text-neutral-400">
+                <div>
+                  <h2 className="text-neutral-600 mb-1">
+                    Reference and Success Story Permission
+                  </h2>
+                  <p className="text-neutral-400 text-sm">
+                    An approval mechanism allowing coaches to share your
+                    reference or success story on their profiles with your
+                    permission.
+                  </p>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value="true"
+                    className="sr-only peer"
+                  />
+                  <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
-          <div className="grid grid-cols-4 gap-x-3">
-            <div className="w-full h-72 bg-green-300 rounded-tr-4xl border border-black border-b-4 border-l-4 relative flex flex-col items-start justify-between space-y-4 p-4">
-              <label className="absolute flex items-center text-gray-700 bg-black w-12 h-12">
-                <input type="radio" name="plan" className="w-5 h-5 hidden" checked />
+      {activeSetting === "Billing" && (
+        <section className="pt-8">
+          <h2 className="text-3xl font-semibold">Plans & Billing</h2>
+          <p className="text-xl">
+            Manage your subscription and billing information.
+          </p>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 my-8">
+            <div className="min-w-54 w-full min-h-72 bg-green-300 hover:bg-green-200 rounded-tr-4xl border border-neutral-200 border-b-2 border-l-2 relative flex flex-col items-start justify-between space-y-4 p-4">
+              <label className="absolute right-4 top-4 rounded-full border-2 bg-white flex items-center text-gray-700 w-6 h-6">
+                <input
+                  type="radio"
+                  name="plan"
+                  className="w-5 h-5 hidden"
+                  checked
+                />
               </label>
               <h3 className="text-xl font-bold">Basic</h3>
-              <p className="text-5xl font-bold">$10 <span className="text-xl font-semibold">per month</span></p>
+              <p className="text-5xl font-bold">
+                $10<span className="text-lg font-semibold">per month</span>
+              </p>
               <p>
                 Essential features to get you started with fitness tracking.
               </p>
-              <button className="bg-black text-white w-full mx-auto py-3">Current Plan</button>
+              <button className="bg-black text-white w-full mx-auto py-3 rounded-lg">
+                Current Plan
+              </button>
             </div>
-            
+            <div className="min-w-54 w-full min-h-80 bg-white hover:bg-neutral-100 rounded-tr-4xl border border-neutral-200 border-b-2 border-l-2 relative flex flex-col items-start justify-between space-y-4 p-4">
+              <label className="absolute right-4 top-4 rounded-full border-2 bg-white flex items-center text-gray-700 w-6 h-6">
+                <input
+                  type="radio"
+                  name="plan"
+                  className="w-5 h-5 hidden"
+                  checked
+                />
+              </label>
+              <h3 className="text-xl font-bold">Growth</h3>
+              <p className="text-5xl font-bold">
+                $20<span className="text-lg font-semibold">per month</span>
+              </p>
+              <p>Advanced features for growing your fitness journey.</p>
+              <button className="bg-black text-white w-full mx-auto py-3 rounded-lg">
+                Upgrade Plan
+              </button>
+            </div>
+            <div className="min-w-54 w-full min-h-72 bg-white hover:bg-neutral-100 rounded-tr-4xl border border-neutral-200 border-b-2 border-l-2 relative flex flex-col items-start justify-between space-y-4 p-4">
+              <label className="absolute right-4 top-4 rounded-full border-2 bg-white flex items-center text-gray-700 w-6 h-6">
+                <input
+                  type="radio"
+                  name="plan"
+                  className="w-5 h-5 hidden"
+                  checked
+                />
+              </label>
+              <h3 className="text-xl font-bold">Scale</h3>
+              <p className="text-5xl font-bold">
+                $30<span className="text-lg font-semibold">per month</span>
+              </p>
+              <p>All features unlocked for scaling your fitness goals.</p>
+              <button className="bg-black text-white w-full mx-auto py-3 rounded-lg">
+                Upgrade Plan
+              </button>
+            </div>
+            <div className="min-w-54 w-full min-h-72 bg-white hover:bg-neutral-100 rounded-tr-4xl border border-neutral-200 border-b-2 border-l-2 relative flex flex-col items-start justify-between space-y-4 p-4">
+              <label className="absolute right-4 top-4 rounded-full border-2 bg-white flex items-center text-gray-700 w-6 h-6">
+                <input
+                  type="radio"
+                  name="plan"
+                  className="w-5 h-5 hidden"
+                  checked
+                />
+              </label>
+              <h3 className="text-xl font-bold">Enterprise</h3>
+              <p className="text-5xl font-bold">
+                $40<span className="text-lg font-semibold">per month</span>
+              </p>
+              <p>Comprehensive solutions for enterprise-level fitness needs.</p>
+              <button className="bg-black text-white w-full mx-auto py-3 rounded-lg">
+                Upgrade Plan
+              </button>
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-semibold mb-4">Billing History</h3>
+            <button className="mb-4 p-2 px-4 text-white bg-black rounded-md gap-x-2 flex items-center">
+              <CloudDownload />
+              Download all
+            </button>
+          </div>
+          {[1, 2, 3, 4, 5].map((item) => (
+            <div key={item}>
+              <div className="flex items-center justify-between gap-x-10 border-t-2 border-neutral-200 p-4 text-gray-600 text-sm">
+                <input type="checkbox" className="" />
+                <div className="flex-1 flex items-center gap-x-2 w-48 font-semibold text-black">
+                  <Icon name="pdf" size={30} />
+                  <div>Invoice #{item}</div>
+                </div>
+                <div>Jan 1, 2024</div>
+                <div>Basic Plan</div>
+                <div>USD $10.00</div>
+                <div className="hidden sm:flex items-center gap-x-2">
+                  <Icon name="creditCard" size={30} />
+                  <div>4242 **** **** 4242</div>
+                </div>
+                <button className="pl-4 hover:text-green-400">
+                  <CloudDownload />
+                </button>
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {activeSetting === "Privacy" && (
+        <section className="pt-8">
+          <h2 className="text-3xl font-semibold">Privacy & Data</h2>
+          <p className="text-xl">
+            Manage your privacy settings and data preferences.
+          </p>
+        </section>
+      )}
+
+      {activeSetting === "Integrations" && (
+        <section className="pt-8">
+          <h2 className="text-3xl font-semibold">Connected Apps</h2>
+          <p className="text-xl">
+            Manage your connected applications and integrations.
+          </p>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-3 my-8">
+            {[
+              {
+                name: "Google Fit",
+                icon: "googleFit",
+                description:"Connect with Google Fit to sync your fitness data.",
+              },
+              {
+                name: "Zoom",
+                icon: "zoom",
+                description: "Integrate with Zoom for virtual training sessions.",
+              },
+              {
+                name: "Google Calendar",
+                icon: "googleCalendar",
+                description:
+                  "Sync your workout schedule with Google Calendar.",
+              },
+              {
+                name: "Microsoft Teams",
+                icon: "microsoftTeams",
+                description: "Integrate with Microsoft Teams for group workouts.",
+              },
+              {
+                name: "Mapbox",
+                icon: "mapbox",
+                description: "Integrate with Mapbox for advanced mapping solutions.",
+              },
+              {
+                name: "Google Meet",
+                icon: "googleMeet",
+                description: "Connect with Google Meet for virtual training.",
+              },
+
+              {
+                name: "Apple Health",
+                icon: "appleHealth",
+                description:
+                  "Integrate with Apple Health for seamless data sharing.",
+              },
+              {
+                name: "Strava",
+                icon: "strava",
+                description: "Sync your activities with Strava.",
+              },
+              {
+                name: "Fitbit",
+                icon: "fitbit",
+                description: "Connect with Fitbit to track your workouts.",
+              },
+              {
+                name: "MyFitnessPal",
+                icon: "googleFit",
+                description:
+                  "Log your meals and track calories with MyFitnessPal.",
+              },
+              {
+                name: "Garmin Connect",
+                icon: "garmin",
+                description:
+                  "Sync your Garmin devices for comprehensive tracking.",
+              },
+              {
+                name: "Samsung Health",
+                icon: "appleHealth",
+                description:
+                  "Integrate with Samsung Health for detailed insights.",
+              },
+              {
+                name: "Withings",
+                icon: "strava",
+                description:
+                  "Connect with Withings to monitor your health metrics.",
+              },
+              {
+                name: "Polar Flow",
+                icon: "fitbit",
+                description:
+                  "Sync your Polar devices for accurate fitness data.",
+              },
+            ].map((app) => (
+              <div
+                key={app.name}
+                className="min-w-54 w-full min-h-70 bg-white hover:bg-neutral-100 rounded-tr-4xl border border-b-2 border-l-2 relative flex flex-col items-start justify-between pt-4"
+              >
+                <div className="flex items-start justify-between w-full text-neutral-200 space-x-2 px-4">
+                  <div className="rounded-xl overflow-hidden bg-white border-2 border-neutral-200 p-1">
+                    <div className="rounded-lg overflow-hidden">
+                      <Icon name={app.icon} size={48} />
+                    </div>
+                  </div>
+                  <ExternalLink />
+                </div>
+                <h3 className="text-xl font-bold px-4">{app.name}</h3>
+                <p className="p-4 py-0">{app.description}</p>
+                <div className="flex items-center justify-between w-full p-4 border-t border-neutral-200">
+                  <button className="py-2 flex items-center justify-center gap-x-1 border border-neutral-200 rounded-xl px-4 text-sm hover:bg-black hover:text-white">
+                    <SettingsIcon />
+                    Settings
+                  </button>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value="true"
+                      className="sr-only peer"
+                    />
+                    <div className="w-16 h-10 bg-gray-200 rounded-full peer-checked:after:translate-x-6 peer-checked:after:border-white after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-8 after:w-8 after:transition-all peer-checked:bg-black"></div>
+                  </label>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
