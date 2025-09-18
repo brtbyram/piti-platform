@@ -6,13 +6,7 @@ function page() {
   return (
     <div className="bg-black min-h-screen">
       <div className="h-80 w-full bg-gray-900 relative border-b-2">
-        <Image
-          src="/images/fitnessperson.jpg"
-          alt="Profile Picture"
-          width={1472}
-          height={832}
-          className="h-full w-full object-cover"
-        />
+
         <div className="absolute -bottom-20 left-[7%] rounded-full border-4 border-white bg-gray-800 h-44 w-44">
           <Image
             src="/images/IMG_20190507_232453_781.jpg"
@@ -39,16 +33,13 @@ function page() {
                 check out my workouts and nutrition tips. Feel free to reach out
                 if you have any questions or just want to chat about fitness!
               </p>
-              <button className="bg-red-600 text-white mt-5 px-8 py-2 rounded-md hover:bg-gray-700 transition-colors">
-                Follow
-              </button>
             </div>
           </div>
           <div className="grid grid-flow-col place-content-center gap-4 pt-4 ">
             <button className="text-red-600 border-2 border-gray-200  h-16 w-16 rounded-full">
               <MessageCircle size={24} className="inline" />
             </button>
-            <button className="text-red-600 border-2 border-gray-200  h-16 w-16 rounded-full">
+            <button className="text-black border-2 border-gray-200  h-16 w-16 rounded-full">
               <Star size={24} className="inline" />
             </button>
 

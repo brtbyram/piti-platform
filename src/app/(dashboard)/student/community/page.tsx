@@ -1,6 +1,6 @@
 "use client";
 
-import { Filter, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -553,9 +553,9 @@ function Community() {
   ];
 
   return (
-    <main className="bg-black min-h-screen">
-      <section className="rounded-2xl bg-gradient-to-b from-neutral-900 to-[#D7FFA4] p-6 py-14 shadow-md shadow-[#D7FFA4] mb-6">
-        <h1 className="text-4xl font-bold text-center">
+    <main className="bg-neutral-50 min-h-screen ">
+      <section className="bg-neutral-700 hidden p-6 py-20">
+        <h1 className="text-5xl font-bold text-white text-center">
           Welcome to the Community Page
         </h1>
         <p className="text-center text-lg text-gray-300 mb-4">
@@ -566,15 +566,15 @@ function Community() {
           href="/dashboard/student/community/create-post"
           className="flex justify-center mt-6"
         >
-          <button className="bg-black text-white px-7 py-3 rounded-full hover:bg-blue-800 transition-colors">
+          <button className="bg-green-400 text-white font-semibold px-7 py-3 rounded-full hover:bg-blue-800 transition-colors cursor-pointer">
             Create Post
           </button>
         </Link>
       </section>
 
-      <section className="mx-4">
-        <section className="flex items-center justify-center space-x-2 mt-4 rounded-full px-3 max-w-6xl mx-auto sticky top-0 bg-black py-3 shadow-xl  z-10">
-          <label className="bg-neutral-800 px-4 py-3  flex items-center justify-center md:justify-start min-w-sm w-7/12 max-w-3xl rounded-full">
+      <section className="">
+        <section className="flex max-md:flex-col-reverse z-30 items-center justify-center gap-2 rounded-b-[4rem] lg:rounded-b-full px-6 py-3 max-w-5xl mx-auto sticky top-20 2xl:top-1 bg-neutral-100 2xl:bg-transparent  shadow-xl">
+          <label className="bg-neutral-200 p-3 basis-1/2 w-10/12 md:w-full flex items-center justify-center md:justify-start  rounded-full">
             <Search size={24} className=" text-neutral-500" />
             <input
               type="text"
@@ -582,14 +582,14 @@ function Community() {
               placeholder="Search posts, users, or topics"
             />
           </label>
-          <nav className="flex justify-center bg-neutral-800 rounded-full ">
+          <nav className="flex justify-center bg-neutral-200 text-black rounded-full ">
             {["feed", "chats", "leaders", "coaches", "discover"].map((tab) => (
               <button
                 key={tab}
                 className={`py-3 px-4 rounded-full transition-colors ${
                   activeTab === tab
-                    ? "bg-[#D7FFA4] text-black"
-                    : "text-white hover:bg-neutral-700"
+                    ? "dark:bg-[#D7FFA4] bg-gray-800 text-white"
+                    : " hover:bg-neutral-300"
                 }`}
                 onClick={() => setActiveTab(tab)}
               >
@@ -598,27 +598,32 @@ function Community() {
             ))}
           </nav>
 
-          <button className="flex items-center space-x-2 px-4 py-3 rounded-full bg-neutral-800">
+         {/* 
+
+         <button className="flex items-center md:space-x-2 px-4 py-3 rounded-full bg-neutral-200">
             <Filter size={20}/>
-            <span className="hidden md:block">Filter</span>
-          </button>
+           <span className="hidden md:block">Filter</span>
+         </button> 
+
+         */}
         </section>
+
         {activeTab === "feed" && (
-          <div className="space-y-6 max-w-[75%] mx-auto px-6 ">
+          <div className="space-y-5 mx-auto max-w-4xl">
             {samplePosts.map((post) => (
               <div
                 key={post.id}
-                className="bg-neutral-900 text-white p-4 rounded-2xl shadow-md"
+                className="bg-neutral-100 text-black py-4 xl:p-4 md:rounded-2xl shadow-sm"
               >
-                <h2 className="text-xl font-semibold mb-2">
+                <h2 className="text-xl font-semibold mb-2 px-4">
                   {post.author.name}
                 </h2>
-                <p className="text-gray-300 mb-4">{post.content}</p>
+                <p className="text-gray-800 mb-4 px-4">{post.content}</p>
                 {post.imageUrl && (
                   <img
                     src={post.imageUrl}
                     alt="Post content"
-                    className="w-full h-auto rounded-lg mb-4"
+                    className="w-full h-auto mb-4"
                   />
                 )}
                 {post.videoUrl && (
@@ -629,7 +634,7 @@ function Community() {
                     allowFullScreen
                   ></iframe>
                 )}
-                <div className="flex items-center justify-between text-gray-300">
+                <div className="flex items-center justify-between px-4 text-gray-600">
                   <span>{post.likesCount} Likes</span>
                   <span>{post.commentsCount} Comments</span>
                 </div>

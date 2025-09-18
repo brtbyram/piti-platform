@@ -1,9 +1,9 @@
-import { ArrowRightIcon, ChevronDown } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 
 function page() {
   return (
-    <main className="flex flex-col min-h-screen bg-black text-white container mx-auto px-4 py-10 gap-y-8 overflow-hidden">
+    <main className="flex flex-col min-h-screen bg-neutral-50 text-black p-10 gap-y-8 overflow-hidden">
       <section className="flex flex-col justify-center md:justify-start">
         <h1 className="text-lg">GOOD MORNING</h1>
         <p className="text-4xl">Berat Murathan Bayram</p>
@@ -18,7 +18,7 @@ function page() {
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-semibold mb-4">Weekly Targets</h2>
             <div className="px-4 border-2 border-gray-200 rounded-full">
-                <select className="py-2 focus:outline-none bg-transparent text-white">
+                <select className="py-2 focus:outline-none bg-transparent text-black">
                   <option value="steps" selected>Steps</option>
                   <option value="calories">Calories</option>
                   <option value="distance">Distance</option>
@@ -34,7 +34,7 @@ function page() {
                   key={index}
                   className="rounded-full flex flex-col items-center justify-center"
                 >
-                  <span className="text-xs text-neutral-400 mt-2">{day}</span>
+                  <span className="text-xs text-neutral-700 mt-2">{day}</span>
                 </div>
               ))}
             </div>
@@ -55,8 +55,8 @@ function page() {
                 }}
               >
                 <div className="flex flex-col items-center justify-center h-[80%] w-[80%] bg-neutral-800 rounded-full">
-                  <p className="text-2xl font-semibold">{day.steps}</p>
-                  <p className="text-sm text-neutral-500">Steps</p>
+                  <p className="text-2xl text-neutral-200 font-semibold">{day.steps}</p>
+                  <p className="text-sm text-neutral-400">Steps</p>
                 </div>
               </div>
             ))}
@@ -66,7 +66,7 @@ function page() {
 
 
       <section className="relative flex items-start flex-col justify-center bg-gradient-to-r from-[#d43a3a] to-[#e27e7e] p-6 rounded-4xl mb-8 min-h-64 overflow-hidden">
-        <p className="!leading-[3.8rem] text-[48px] font-semibold w-8/12">
+        <p className="!leading-[3.8rem] text-[48px] font-semibold w-8/1 text-neutral-200">
           Fast-Track with a personal Trainer
         </p>
         <button className="bg-black text-white p-2 pl-5 rounded-full mt-4 text-xl">
@@ -98,7 +98,7 @@ function page() {
       <section>
         <h2>Upcoming Events</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-          <div className="bg-neutral-800 p-6 rounded-4xl">
+          <div className="bg-neutral-200 p-6 rounded-4xl">
             <h3 className="text-xl font-semibold">Yoga Retreat</h3>
             <p className="text-neutral-500 mt-2">
               Join us for a relaxing weekend of yoga and meditation.
@@ -107,7 +107,7 @@ function page() {
               Learn More
             </button>
           </div>
-          <div className="bg-neutral-800 p-6 rounded-4xl">
+          <div className="bg-neutral-200 p-6 rounded-4xl">
             <h3 className="text-xl font-semibold">CrossFit Challenge</h3>
             <p className="text-neutral-500 mt-2">
               Test your limits in our upcoming CrossFit challenge.
@@ -116,7 +116,7 @@ function page() {
               Learn More
             </button>
           </div>
-          <div className="bg-neutral-800 p-6 rounded-4xl">
+          <div className="bg-neutral-200 p-6 rounded-4xl">
             <h3 className="text-xl font-semibold">Nutrition Workshop</h3>
             <p className="text-neutral-500 mt-2">
               Learn how to fuel your body for optimal performance.
