@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ReduxProvider from "@/redux/ReduxProvider";
 import "./globals.css";
 
 
@@ -14,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased min-h-screen text-gray-900 bg-gray-100`}>
-        {children}     
+      <body className={`antialiased min-h-screen text-gray-900 bg-neutral-100`}>
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );

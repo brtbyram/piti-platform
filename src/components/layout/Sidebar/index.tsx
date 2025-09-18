@@ -158,7 +158,7 @@ export default function Sidebar() {
 
   return (
     <nav
-      className={`bg-neutral-950 text-white p-4 sticky top-0 left-0 h-screen z-20  max-lg:hidden ${
+      className={`bg-neutral-950 text-white p-4 sticky top-0 left-0 h-screen z-20 pt-28  max-lg:hidden ${
         isSidebarOpen ? "w-80" : "max-w-max w-full"
       }`}
     >
@@ -207,7 +207,7 @@ export default function Sidebar() {
             >
               <Icon
                 size="24"
-                className={`${link.label === "Logout" && "text-red-500 "}`}
+                className={`${link.label === "Logout" && "text-red-500"}`}
               />
               <div className={`${isSidebarOpen ? "block ml-2" : "hidden"}`}>
                 {link.label}
