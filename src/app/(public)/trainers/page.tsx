@@ -1273,10 +1273,12 @@ function Trainers() {
   ];
 
   return (
-    <div className="min-h-screen  bg-white text-black max-w-screen">
+    <div className="min-h-screen bg-white text-black max-w-screen ">
+            <div className="sticky top-0 left-0 h-28 z-10 bg-white/70 backdrop-blur-xl" />
+
       {/* Hero Section */}
 
-      <section className="max-w-screen h-[400px]">
+      <section className="max-w-screen overflow-hidden h-[400px] z-20">
         {categories.map(
           (category, index) =>
             activeCategory === category.ad && (
@@ -1313,7 +1315,6 @@ function Trainers() {
             )
         )}
       </section>
-
       {/* <h1 className="text-4xl font-bold  mb-6">Meet Our Trainers</h1>
           <p className="text-lg mb-8">
             Our trainers are here to help you achieve your fitness goals with
@@ -1326,8 +1327,8 @@ function Trainers() {
 
       {/* Popular Trainers Section */}
       <section className="pb-6">
-        <section className="sticky z-50 top-20 px-[4%] mb-8 py-4 flex items-center justify-center border-y bg-white text-black border-neutral-500 shadow-md">
-          <div className="grid grid-cols-10 gap-3">
+        <section className="sticky z-40 top-22 px-[4%] mb-8  flex items-center justify-center bg-white text-black shadow-md">
+          <div className="grid grid-cols-10 gap-x-3">
             <CategorySlider
               activeCategory={activeCategory}
               setActiveCategory={setActiveCategory}

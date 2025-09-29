@@ -404,17 +404,17 @@ function CategoryFilter({ activeCategory }: { activeCategory: string }) {
   ];
 
   return (
-    <div className="col-span-10 md:col-span-3 lg:col-span-2 grid grid-cols-2 gap-x-3 font-semibold">
+    <div className="col-span-10 md:col-span-3 lg:col-span-2 grid grid-cols-2 gap-x-3 font-semibold py-4">
       <button
         onClick={() => setFilterOpen(true)}
-        className="text-black flex items-center justify-center px-4 border border-neutral-800 rounded-xl py-2.5 hover:border-neutral-400 hover:bg-neutral-300"
+        className="text-black bg-white flex items-center justify-center px-4 border border-neutral-800 rounded-xl py-2.5 hover:border-neutral-400 hover:bg-neutral-300"
       >
         <span className="flex items-center justify-center space-x-2 text-xs">
           <Icon name="filter" size={16} />
           <span>Filtreler</span>
         </span>
       </button>
-      <button className="text-black flex items-center justify-center space-x-2 px-4 border border-neutral-800 rounded-xl py-2.5 hover:border-neutral-400 hover:bg-neutral-300">
+      <button className="text-black bg-white flex items-center justify-center space-x-2 px-4 border border-neutral-800 rounded-xl py-2.5 hover:border-neutral-400 hover:bg-neutral-300">
         <span className="flex items-center justify-center space-x-2 text-xs">
           <ArrowDownUp size={16} />
           <span>Sıralama</span>
@@ -423,7 +423,7 @@ function CategoryFilter({ activeCategory }: { activeCategory: string }) {
 
       {filterOpen && (
         <div className="fixed top-0 left-0 right-0 z-20 h-screen w-full bg-[#000000]/50">
-          <div className="bg-white text-black border rounded-2xl my-10 w-10/12 max-w-[780px] h-[880px] overflow-hidden mx-auto">
+          <div className="bg-white text-black border rounded-2xl mt-22 w-10/12 max-w-[780px] h-[840px] overflow-hidden mx-auto">
             <header className="relative flex justify-center items-center w-full p-6 border-b border-[#e5e7eb]">
               <h1 className="leading-5 font-bold">Filtreler</h1>
               <button
@@ -435,7 +435,7 @@ function CategoryFilter({ activeCategory }: { activeCategory: string }) {
             </header>
 
 
-            <main className="p-6 pb-0 overflow-y-auto h-[730px]">
+            <main className="p-6 pb-0 overflow-y-auto h-10/12">
               {/* antrenman şekli */}
               <div className="border-b border-[#e5e7eb]">
                 <h2 className="font-semibold text-[22px] leading-[26px] pb-4">
@@ -798,7 +798,7 @@ function CategoryFilter({ activeCategory }: { activeCategory: string }) {
               </div>
             </main>
 
-            <footer className="flex justify-around items-end w-full space-x-3 h-16 px-6 text-[18px] font-medium">
+            <footer className="flex justify-around items-end w-full space-x-3 h-16 px-6 text-[18px] min-h-min font-medium">
               <button
                 onClick={() => setFilterOpen(false)}
                 className="text-[#222222] w-full h-14 rounded-lg border border-gray-300 hover:border-black hover:bg-[#f5f5f5]"

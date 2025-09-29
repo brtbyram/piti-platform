@@ -28,7 +28,7 @@ function CategorySlider(props) {
     { name: "Wellness", imageURL: "/images/wellness.png" },
     { name: "Mindfulness", imageURL: "/images/mindfulness.png" },
     { name: "Balance", imageURL: "/images/balance.png" },
-    { name: "Core Strength", imageURL: "/images/core-strength.png" },
+  //  { name: "Core Strength", imageURL: "/images/core-strength.png" },
   //    { name: "Mobility", imageURL: "/images/mobility.png" },
   //   { name: "Agility", imageURL: "/images/agility.png" },
   //   { name: "Recovery", imageURL: "/images/recovery.png" },
@@ -50,7 +50,7 @@ function CategorySlider(props) {
   ];
 
   return (
-    <div className="col-span-10 md:col-span-7 lg:col-span-8 bg-white">
+    <div className="col-span-10 md:col-span-7 lg:col-span-8 ">
       <Swiper
         modules={[Navigation]}
         spaceBetween={0}
@@ -63,10 +63,9 @@ function CategorySlider(props) {
             onClick={() => setActiveCategory(category.name)}
             key={index}
             className={clsx(
-              "opacity-90 grid place-content-center place-items-center bg-white gap-y-2 h-[78px] hover:border-b cursor-pointer max-w-max mx-6 hover:opacity-100",
+              "grid place-content-center place-items-center text-black gap-y-2 h-[78px] py-4 hover:bg-neutral-50 rounded-2xl cursor-pointer max-w-max px-6 transition-colors duration-700",
               {
-                "border-b border-neutral-500 text-black !opacity-100":
-                  category.name === activeCategory,
+                " text-black text-center p-2 bg-neutral-100 transition-colors ": category.name === activeCategory,
               }
             )}
           >
@@ -75,7 +74,7 @@ function CategorySlider(props) {
               alt={category.name}
               width={24}
               height={24}
-              className="w-6 h-6"
+              className="w-6 h-6 object-contain"
             />
             <span className="text-xs ">{category.name}</span>
           </SwiperSlide>
