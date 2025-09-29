@@ -28,24 +28,24 @@ function Home() {
       <main className="bg-[#F3F4F6] text-gray-900 flex flex-col items-center justify-center relative size-full min-h-screen overflow-x-hidden">
         {/* Hero section */}
         <section className="hero-bg bg-cover bg-center w-screen">
-          <div className="container mx-auto flex min-h-[calc(100vh-80px)] flex-col items-center justify-center px-6 text-center lg:px-10">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
-                Unlock Your Potential.{" "}
+          <div className="container mx-auto flex min-h-[calc(100vh-80px)] h-screen flex-col items-center justify-center px-6 text-center lg:px-10">
+            <div className="flex flex-col items-center justify-center">
+              <h1 className="font-extrabold !leading-24 tracking-[-0.07em] text-white  sm:text-7xl xl:text-9xl">
+                UNLOCK YOUR POTENTIAL.{" "}
                 <span className="text-[var(--accent-color)]">
-                  Connect &amp; Conquer.
+                  CONNECT &amp; CONQUER.
                 </span>
               </h1>
-              <p className="mt-6 text-lg leading-relaxed text-neutral-200 sm:text-xl">
+              <p className="mt-6 text-lg max-w-7/12 xl:max-w-5/12 text-neutral-200 sm:text-xl">
                 Whether you&apos;re seeking expert guidance to smash your
-                fitness goals or you&apos;re a trainer ready to inspire,
+                fitness goals or you&apos;re a trainer ready to inspire,s
                 yourTrainer is your ultimate platform.
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <button className="bg-[var(--accent-color)] text-white hover:bg-opacity-90 transition-colors duration-300 flex w-full sm:w-auto min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg py-3 px-6 text-base font-semibold leading-normal tracking-[0.015em] shadow-lg hover:shadow-xl transform hover:scale-105 ">
+                <button className="bg-[var(--accent-color)] text-white hover:bg-opacity-90  transition-colors duration-300 flex w-full sm:w-auto min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center rounded-[2rem] py-4 px-6  hover:shadow-md shadow-[#27ae60]  transform hover:scale-105 ">
                   <span className="">I&apos;m Looking for a Trainer</span>
                 </button>
-                <button className="bg-white text-[var(--primary-color)] hover:bg-neutral-100 flex w-full sm:w-auto min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg py-3 px-6 text-base font-semibold leading-normal tracking-[0.015em] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                <button className="bg-white text-[var(--primary-color)] hover:bg-neutral-100 flex w-full sm:w-auto min-w-[180px] max-w-[480px] cursor-pointer items-center justify-center  rounded-[2rem] py-4 px-6 hover:shadow-md shadow-neutral-100 transform hover:scale-105 transition-all duration-300">
                   <span className="">I&apos;m a Trainer</span>
                 </button>
               </div>
